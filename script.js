@@ -58,25 +58,26 @@ btnRoll.addEventListener('click', function () {
   }
 });
 btnHold.addEventListener('click', function () {
+  const inactivePlayer = activePlayer === 1 ? 0 : 1;
   if (gamePlay) {
     //1.add current score to the active player's score
     scores[activePlayer] += currentScore;
     document.getElementById(`score--${activePlayer}`).textContent =
       scores[activePlayer];
     //2.Check if player's score is >=100
-    if (scores[activePlayer] >= 5) {
+    if (scores[activePlayer] >= 75) {
       //if yes , then finish the game
       gamePlay = false;
       dice.classList.add('hidden');
       document
         .querySelector(`.player--${activePlayer}`)
-        .classList.toggle('player--winner');
+        .classList.add('player--winner');
       document
         .querySelector(`.player--${activePlayer}`)
-        .classList.toggle('player--active');
+        .classList.remove('player--active');
       document
-        .querySelector(`.player--${2}`)
-        .classList.toggle('player--looser');
+        .querySelector(`.player--${inactivePlayer}`)
+        .classList.add('player--looser');
     } else {
       //if not ,then switch to next player
       switchPlayer();
@@ -97,6 +98,8 @@ btnNew.addEventListener('click', function () {
   player1.classList.remove('player--winner');
   player0.classList.add('player--active');
   player1.classList.remove('player--active');
+  player0.classList.remove('player--looser');
+  player1.classList.remove('player--looser');
 });
 gameRulesTitle.addEventListener('click', function () {
   wrapper.classList.remove('hidden');
