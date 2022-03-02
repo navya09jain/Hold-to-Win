@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
-
 * {
   margin: 0;
   padding: 0;
@@ -165,10 +163,6 @@ main {
   background-color: #2fec00;
 }
 
-.player--looser {
-  background-color: #f51010;
-}
-
 .player--winner .name {
   font-weight: 700;
   color: #19e412;
@@ -178,7 +172,16 @@ main {
   display: none;
 }
 
-/*Game rules*/
+.player--looser {
+  background: red;
+}
+
+.player--looser .name {
+  font-weight: 700;
+  color: red;
+}
+
+/*game rules*/
 .wrapper {
   position: absolute;
   top: 0;
@@ -304,3 +307,6 @@ main {
 .holdToWin span {
   color: #0494a7;
 }
+
+  
+
